@@ -1,0 +1,100 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+
+\usepackage{geometry}
+\geometry{textheight=9.5in, textwidth=7in}
+
+\include{pygments.tex}
+
+% 1. Fill in these details
+\def \CapstoneTeamName{		}
+\def \CapstoneTeamNumber{		36}
+\def \GroupMemberOne{			Trevor Swope}
+\def \GroupMemberTwo{			William Selbie}
+\def \GroupMemberThree{			Luke Goertzen}
+\def \CapstoneProjectName{		Project LOOM}
+\def \CapstoneSponsorCompany{	Openly Published Environmental Sensing Lab}
+\def \CapstoneSponsorPerson{	Chet Udell}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{		Problem Statement
+				%Requirements Document
+				%Technology Review
+				%Design Document
+				%Progress Report
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+%\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+    	% \includegraphics[height=4cm]{coe_v_spot1}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS Capstone \DocType \par
+            {\large\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            \vfill
+            {\large Prepared for}\par
+            \Huge \CapstoneSponsorCompany\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            \CapstoneTeamName\par 
+            \vspace{5pt}
+            {\Large
+                \NameSigPair{\GroupMemberOne}\par
+                \NameSigPair{\GroupMemberTwo}\par
+                \NameSigPair{\GroupMemberThree}\par
+            }
+            \vspace{20pt}
+        }
+        \begin{abstract}
+        % 6. Fill in your abstract    
+        	   The Internet of Things, comprising any network of embedded systems capable of interacting with data, has potential applications in practically every industry. Unfortunately, the technical barrier to understanding the technology behind these applications limits the pool of creators who are able to realize a particular Internet of Things project’s vision. Project LOOM aims to enable these creators to put their ideas into action by abstracting away the technical challenges common to any Internet of Things system, reducing the work of the creator to describing their desired functionality and building a system out of fundamentally simple yet diversely applicable building blocks. However, Project LOOM aims to be able to cater to this ideal without restricting Project LOOM’s potential in the hands of experts. To demonstrate the functionality of the platform we develop, we will present a proof of concept at expo at the end of the year.
+        \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+%\listoftables
+\clearpage
+
+% 8. now you write!
+\section{Problem Description / Definition}
+    The Internet of Things (IoT) is a relatively new concept, entailing an aggregate of embedded systems capable of reading, transmitting, receiving, processing, or acting upon data. This often takes the form of a network of remotely connected devices that can be used for the purpose of autonomous data collection, or remote control and automation of various systems. One of the current restrictions that people and businesses face when seeking to develop IoT solutions is that even for a simple project, there is a fairly high level of expertise required to implement it; this technical barrier becomes more and more prohibitive with systems of increasingly complex functionality.\\ \\
+    In other words, while anybody might have an idea for an Internet of Things project, not everybody has the technological knowledge and programming skills required to set it up, or the budget to contract it out to someone who does. The significance of this problem is that the technical barrier limits the pool of ideas and solutions that can be actualize through IoT. This means that problems that could have been solved are going unsolved because the people with the ideas to fix them don’t have the means do so. With Project LOOM, we hope to create a system that is simple enough for anyone to use, but limitless in scale and complexity. In order to be perfectly scalable and infinite in scope, experienced users and virtuosos must have the ability to build their own modules and write their own code, otherwise, Project LOOM could not serve both beginners and experts.
+
+
+\section{Proposed Solution / Desired Outcome}
+    With Project LOOM, we aim to create an open-source, plug-and-play suite of modular building blocks that can be used by a user with limited technical expertise to create complex systems. We hope to broaden the range of people capable of implementing IoT projects by developing a system that abstracts out the more technical details consistent to any project. While we will simplify some of the operational details so that the platform can be used for K-12 education, this does not mean that we will hinder college level and professional users with a limited or over-simplified system. This will entail, along with the blocks themselves, a graphical user interface that allows the user to visualize the process of creating, initializing, monitoring, and controlling a complex system.\\ \\
+    The bricks or modules themselves are simply interchangeable, self-contained devices that can be connected to an IoT network with minimal configuration. The users should not have to program, solder, or otherwise necessarily concern themselves with the technical details of how the modules are constructed or operate. This is an important part of making the system easy to use to a broader audience than just those are literate in underlying technology. So instead, the user should be able to choose which bricks best fit their needs based on clear functionality descriptions. Such modules may include sensors of temperature, humidity, light, and motion; and actuators such as motors, servos, lights, and speakers. There will also be modules enabling wireless and wired connectivity over short and long distances. Logical combinations of modules can be grouped into kits, but chips from separate sets could still be mixed and used with those from other sets without compatibility issues. The project will also give users the option to build and attach their own modules and write their own code from scratch without the graphical interface. Giving users the ability to control every aspect of what they build from the ground up will prevent experts from being constrained by architecture choices that were made to help beginners.\\ \\
+    We will develop an easy to use graphical interface that allows the user to set up and configure their devices via a drag-and-drop interface, and compile the appropriate firmware for the devices they have selected. Once this is done, they are given instructions on how to optimally connect their devices, and then will be able to easily monitor or control the inputs and outputs of their system via an app. Additionally, should the user want to delve into the programming and details behind our interface, there will not be restrictions that prevent them from being able customize the platform to better fit more advanced needs. A large part of the Internet of Things concept revolves around If This, Then That (IFTTT), or that the modules should be able to perform reasonable reactions based on what they perceive. An action might be executed by an actuator, but it could also mean that the user receives a notification when some threshold is passed or event happens. As a stretch goal, we also hope to give the user the option of hosting their own monitoring system locally or running it via cloud software.\\ \\
+    The desired outcome is that, in addition to developing the modules and interface, we will prepare a proof of concept to demonstrate how our system would work in practice.
+
+
+\section{Performance Metrics}
+    The most significant performance metric will take the form of proofs of concept, both at the end of Fall term, and at the end of the year. Specifically, we would like to have a functional prototype incorporating at least three different types of sensors and one form of communication (likely only wired instead of wireless at this point) by the end of Fall term for demonstration, with a working user interface that allows faculty and industry guests to engage with the project. This proof of concept should be able to actively read in data from the sensors, perform some logic or decision on the data, and then direct the actuator to respond accordingly. Between the end of Fall term and the end of the project, we would develop more sensors, add different forms of wireless communication, and refine the user interface for developing and using an Internet of Things project. \\ \\
+    At the end of the project, for expo, we want to be able to think of a possible real world use for the chipset and be able to implement it without writing any new code. That is, we would prepare our expo proof of concept as a user of our system would. While we might have people such as fellow students test or give feedback on how easy our platform is to use, formal studies of usability are beyond the scope of the senior capstone project. Furthermore, the security of our modules will not necessarily be a primary focus of the project, instead focusing on the actual functionality of the modules.
+
+\end{document}
