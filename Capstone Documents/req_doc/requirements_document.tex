@@ -205,10 +205,15 @@
 		\begin{tikzpicture}[x=.5cm, y=2cm]
 		\begin{ganttchart}[vgrid, hgrid]{1}{33} % 3 terms
 		\gantttitle{Fall}{11} \gantttitle{Winter}{11} \gantttitle{Spring}{11} \\
-		\ganttbar{Task One}{1}{4} \\    
-		\ganttbar[name=b2]{Task Two}{5}{6} \\      
-		\ganttbar[name=b3]{Task Three}{7}{11}
+		\ganttbar[name=b1]{First Shields Firmware}{1}{7} \\    
+		\ganttbar[name=b2]{First Shields Software}{7}{9} \\      
+		\ganttbar[name=b3]{First Shields Demo}{9}{11}
 		\ganttlink{b2}{b3}
+		\ganttbar[name=b4]{Second Shields Firmware}{12}{15} \\
+		\ganttbar[name=b5]{Second Shields Software}{16}{18} \\
+		\ganttbar[name=b6]{Modular Compiling Interface}{19}{25} \\
+		\ganttbar[name=b7]{Remote Calibration/Setup Firmware}{26}{33} \\
+		\ganttbar[name=b7]{Remote Calibration/Setup Software}{26}{33} \\
 		\end{ganttchart}
 		\end{tikzpicture}
 		}
