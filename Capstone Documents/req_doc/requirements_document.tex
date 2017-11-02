@@ -2,7 +2,7 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{setspace}
-
+\usepackage{pgfgantt}
 \usepackage{geometry}
 \geometry{textheight=9.5in, textwidth=7in}
 
@@ -157,4 +157,19 @@ The security of the modules is somewhat out of the scope of the project--anyone 
 
 \subsubsection{Maintenance}
 As mentioned under Reliability, the interface should give an alert to the user if one of the modules that is meant to operate on the long-term is no longer transmitting its data in the expected interval. This will allow a user to troubleshoot the problem.
+
+\newpage
+
+\noindent\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[x=.5cm, y=2cm]
+\begin{ganttchart}[vgrid, hgrid]{1}{33} % 3 terms
+\gantttitle{Fall}{11} \gantttitle{Winter}{11} \gantttitle{Spring}{11} \\
+\ganttbar{Task One}{1}{4} \\    
+\ganttbar[name=b2]{Task Two}{5}{6} \\      
+\ganttbar[name=b3]{Task Three}{7}{11}
+\ganttlink{b2}{b3}
+\end{ganttchart}
+\end{tikzpicture}
+}
+
 \end{document}
