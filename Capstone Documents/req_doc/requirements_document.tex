@@ -63,12 +63,11 @@
             }
             \vspace{20pt}
         }
-%        \begin{abstract}
+        \begin{abstract}
 % 6. Fill in your abstract    
-%        	Our project involves creating a rapid prototyping system in the field of Internet of Things that can be used by those with minimal technical experience, with specific focus on use in the field of agriculture.
-%			This will take the form of modular hardware kits that can be programmed using a graphical interface so that the user never has to write a line of code. The reason that this is so useful is because of the current barriers to entry for Internet of Things type solutions greatly restrict the quantity of solutions being proposed. At the same time, Internet of Things related ideas have the potential to solve a large quantity of problems, but a lot of the population lacks the technical skills to enact these solutions even though they have the creativity to come up with them. 
-%			By giving those without technical experience the ability to create and build their own solutions we are removing one of the barriers to entry to creating Internet of Things type solutions, resulting, in theory, in a greater number of problems being solved. 
-%       \end{abstract}     
+			This client requirements document outlines the deliverables that the Computer Science Senior Capstone Group 36 will be producing and held accountable for - with regards to client satisfaction and Capstone course evaluation.
+			The document addresses what the end result will be expected to do and be, but not how it is implemented. 
+		\end{abstract}     
     \end{singlespace}
 \end{titlepage}
 \newpage
@@ -82,81 +81,121 @@
 % 8. now you write!
 \section{Introduction}
 	\subsection{Purpose}
-	This document aims to elucidate the goals, scope, requirements, and development process of the software and hardware of Project LOOM. Project LOOM will be a modular suite of Internet of Things devices whose extensible and easy programmability expands the demographic of people capable of implementing Internet of Things solutions.
+	This document aims to define the goals, scope, requirements, and development direction of the software and firmware side of Project LOOM. This document does not address in depth the requirements of the hardware portions of Project LOOM. The focus is instead only on the scope of the project with regards to the work to be done by Computer Science Capstone Group 36. Additionally, this document explains what the system will be expected to do, not how it will do so. As such, some details of specific technologies, protocols, or hardware will be deferred to subsequent documents.While this document will present the dependencies of the project, with regards of what must be completed in order for others to begin, a specific timeline will not yet be provided. 
+	This document is intended for the client of Project LOOM, Chet Udell, as well as the Senior Capstone course instructors to outline what can be expected of the Senior Capstone group to produce over the course of the project, and to provide a metric against which Group 36 will be evaluated.
+
 	\subsection{Scope}
-	With Project LOOM, we aim to create an open-source, plug-and-play suite of modular building blocks that can be used by a user with limited technical expertise to create complex systems. We hope to broaden the range of people capable of implementing IoT projects by developing a system that abstracts out the more technical details consistent to any project.
+	With Project LOOM, we aim to create an open-source, plug-and-play, suite of modular building blocks, the extensible and easy programmability of which expands the demographic of people capable of implementing Internet of Things solutions. For users with limited technical expertise to create complex systems, we aim to build a system that abstracts out the more technical details, allowing them to focus on their system more than the implementation of the modules. The system should also be usable by higher level students and experts by allowing them to modify or write their own firmware, and create new modules. Project LOOM will be developed for university faculty demos of functionality, possible subsequent commercialization is currently outside of the scope of the Senior Capstone project.
 	\subsection{Definitions, Acronyms, and Abbreviations}
-	\textbf{The Internet of Things (IoT):} Entails an aggregate of embedded systems capable of reading, transmitting, receiving, processing, and acting upon data. This often takes the form of a network of remotely connected devices that can be used for the purpose of autonomous data collection, or remote control and automation of various systems. \newline
+	\textbf{The Internet of Things (IoT):} Entails an aggregate of systems (many embedded) capable of reading, transmitting, receiving, processing, and acting upon data. This often takes the form of a network of remotely connected devices that can be used for the purpose of autonomous data collection, or remote control and automation of various systems. \newline
 	\textbf{Module:} An interchangeable, self-contained device that can be connected to an IoT network with minimal configuration. Connects to other modules to combine behaviors (i.e. a sensor attached to a WiFi adapter becomes a sensor that transfers data over WiFi). \newline
 	\textbf{Gateway:} A wired or wireless node connecting multiple devices on a network (e.g. WiFi, Ethernet) \newline
-	\textbf{Long-Range Wireless Radio Frequency (LoRa RF or just LoRa):} A flavor of gateway that transmits over 2-26km line of sight
 
 	\subsection{References}
-	List that Gantt chart exists (actual chart lives elsewhere)
+	\begin{enumerate}
+		\item \textbf{Figure One:} \texttt{Gantt Chart}
+		\item \textbf{Figure Two:} \texttt{License}
+	\end{enumerate}
+	
 	\subsection{Overview}
-	The remainder of the document will provide more specific information regarding the functions and constraints of Project LOOM, as well as characteristics of its users and the assumptions and dependencies that are inherent to its inception. 
+	The remainder of this document will provide an overview of major functions of Project LOOM, followed by more specific information regarding these functions and constraints to their design, as well as characteristics of its users and the assumptions and dependencies that are inherent to its inception. A Gantt chart is provided to illustrate dependencies of the stages of the project.
 
 \section{Overall Description}
 	\subsection{Product Perspective}
-	The part of Project LOOM being worked on by Group 36 is merely a subset of the larger project that includes developing the graphical interface that will be used to program the kits as well as the embedded firmware that will be run on the devices themselves.
+	The scope of the work that Group 36 will be responsible for is a subset of that of the larger Project LOOM team. This subset includes the embedded firmware that will be run on the devices themselves, as well as the development of the graphical interface that will be used to program and monitor the connected devices.
 
-	\subsubsection{User Interfaces}
-	The main user interface will be a module for MaxMSP that 
-	\subsection{Product Functions}
+		\subsubsection{User Interfaces}
+		The main user interface will be presented via modules in MaxMSP that receive and process data in a readable way. Readability will be informally evaluated by whether or not faculty or other users are able to set up and understand the displays of program during our demos.
+		
+		\subsubsection{Software Interfaces}
+		Project LOOM will interface with the following software in order to visualize data or to use the software as an output of the system:
+			\begin{itemize}
+				\item MaxMSP
+				\item IFTTT
+				\item Google Docs via PushingBox
+				\item AdaFruit IO
+				\item Plot.ly
+				\item Anything else that accepts TCP/MQTT or UDP/OSC packetized data
+			\end{itemize}
+		
+		\subsubsection{Hardware Interfaces}
+		The following hardware interfaces (not necessarily exhaustive) will be used to make the modules. The construction itself is not a part of Group 36’s portion of Project LOOM:
 		\begin{itemize}
-		\item The product must be able to receive and transmit data with physically and wirelessly connected modules.
-		\item Users must be able to view the readings or actions of the connected modules via software
-		\item Users must be able to remotely trigger events on actuators
-		\item Users must be able to re-calibrate devices remotely
-		\item Users must be able to program the devices with the Arduino development environment by altering or replicating the open-source code on which the firmware is based.
+			\item AdaFruit FeatherM0
+			\item AdaFruit Feather32u4
+			\item MPU6050
+		\end{itemize}
+		
+	\subsection{Product Functions}
+		The system must be able to:
+		\begin{itemize}
+			\item Receive and transmit data with physically and wirelessly connected modules.
+			\item Perform actions based on received data.
+			\item The firmware should be modular and configurable via a user interface.
+		\end{itemize}
+		Users must be able to:
+		\begin{itemize}
+			\item Select and visualize incoming sensor data on a network via MaxMSP
+			\item Remotely trigger events on actuators and monitor these actions via a user interface
+			\item Re-calibrate devices remotely
+			\item Process or analyze this data for events, thresholds, feature recognition, remap to useful control signals
+			\item Program the devices with the Arduino development environment by altering or replicating the open-source code on which the firmware is based
 		\end{itemize}
 
 	\subsection{User Characteristics}
-	There are a range of possible users for the LOOM devices and software; the target audience is meant to span from novice hobbyists to experts. Anyone wanting to learn about or implement an IoT solution in a streamlined fashion should be able to pick it up out of the box and get a simple system working without any programming. On the other end of the spectrum, there are users with more technical expertise, who simply want well-designed sensors and actuators that work together in a way that make sense. Since Project LOOM is open-source, these users will be able to write their own software and firmware for the chips if they choose to do so.
+	There are a range of possible users for the LOOM devices and software; the target audience is meant to span from novice hobbyists to experts. Anyone wanting to learn about or implement an IoT solution in a streamlined fashion should be able to pick it up out of the box and get a simple system working without any programming. On the other end of the spectrum, there are users with more technical expertise, who simply want well-designed sensors and actuators that work together in ways that make sense. Since Project LOOM is open-source, these users will be able to write their own software and firmware for the chips if they choose to do so.
 	Project LOOM is currently being developed with the intent to be tested by university professors and their students.
 
 	\subsection{Constraints}
-		\begin{enumerate}
-			\item \textbf{Regulatory policies:} FCC.
-			\item \textbf{Hardware limitations (e.g., signal timing requirements):} AdaFruit FeatherM0, MPU6050
-			\item \textbf{Interfaces to other applications:} Connection to MaxMSP via serial/WiFi/other Gateway
-			\item \textbf{Parallel operations:} Sending/receiving at the same time
-			\item \textbf{Audit functions:} Not relevant
-			\item \textbf{Control functions:} (We will be consulting with Chet Udell to get more specifics on this)
-			\item \textbf{Higher-order language requirements:} C/C++ hybrid (arduino), Javascript plugins for Max
-			\item \textbf{Signal handshake protocols (e.g., XON-XOFF, ACK-NACK):} MQTT, ITTTT, TCP/IP, UDP
-			\item \textbf{Reliability requirements:} Will send notification if system has detected that a module is broken, offline, or otherwise less functional.(We will be consulting with Chet Udell to get more specifics on this)
-			\item \textbf{Criticality of the application:} Not an immediately critical system
-			\item \textbf{Safety and security considerations:} Will be followed to a reasonable effort, but not to the point that it restricts progress of the rest of the project
-		\end{enumerate}
+		\textbf{Hardware Limitations:} The software must run on the following hardware: AdaFruit FeatherM0, AdaFruit Feather32u4, MPU6050i. \newline
+		\textbf{Parallel Operation:} Sending and receiving should be possible at the same time, especially to and from any central computer. \newline
+		\textbf{Reliability Requirements:} Will send notification if system has detected that a module is broken, offline, or otherwise less than functional. However, the project is not currently being held to any standards and reliability will not be quantified. \newline
+		\textbf{Safety and Security:} Will be addressed to a reasonable effort, but not to the point that it restricts progress of the rest of the project. \newline
+	
 	\subsection{Assumptions and Dependencies}
-	Our work will be built off of the framework of the existing hardware and software of Project Loom. We are assuming that our firmware and software will be run on functional hardware developed by a sister team of Project Loom. The firmware for the modules in Project LOOM will be developed with the Arduino development environment, and the interface for reading the data will be a plugin for MaxMSP.
-
-	\subsection{Apportioning of Requirements}
-	(We will be consulting with Chet Udell to get more specifics on this)
+	Our work will be built off of the framework of existing hardware and software of Project LOOM. We are assuming that our firmware and software will be run on functional hardware developed by a sister team of Project Loom. The firmware for the modules in Project LOOM will be developed with the Arduino development environment, and the interface for reading the data will be a plugin for MaxMSP.
 
 \section{Specific Requirements}
-\subsection{External Interfaces}
-Inputs: Open Sound Control instructions/commands from the gateway, requests for data
-Outputs: Actuator behavior (Servos, etc.), Open Sound Control digital/analog data to the gateway
+	\subsection{External Interfaces}
+	Inputs: 
+	\begin{itemize}
+		\item Open Sound Control packets giving instructions
+		\item Commands from the gateway
+		\item Requests for data
+		\item Data from sensors
+	\end{itemize}
+	Outputs: 
+	\begin{itemize}
+		\item Actuator behavior (servos, motors, lights, etc.)
+		\item Open Sound Control digital/analog 
+		\item Data to the gateway
+	\end{itemize}
+	
+	\subsection{Functions}
+	Modules will each have their own functionality but should be able to connect to the software and network of other modules without difficulty. The user should be able to use software to view data reading or to cause behaviors of actuator modules via outputs. Software can be used to translate outputs from one module into a usable input to another module, or simply process and display the data for the user. A comprehensive list of modules intended to be developed is not yet defined.
 
-\subsection{Functions}
-Modules will be able to connect to a host via several different gateways: a serial connection, WiFi (using credentials flashed onto the chip), LoRa, and LAN. Modules shall take and send data at intervals set by the user, or on a pinged request. Any output behavior will be reflected in the behavior of an actuator module.
+	\subsection{Performance Requirements}
+	There are not currently requirements regarding the speed of the modules, the number of modules, etc. The focus is currently to get the system operational, performance improvements can be incorporated later. However, some performance related points are:
+	\begin{itemize}
+		\item Code has a lightweight modular structure, based on pre-compiler conditionals
+		\item Programmable and modifiable via Arduino IDE and MaxMSP
+		\item Live data configurable over UI 
+	\end{itemize}
 
-\subsection{Performance Requirements}
-(We will be consulting with Chet Udell to get more specifics on this)
+	\subsection{Design Constraints}
+		\textbf{Budget:} Products must be low-cost relative to other off-the-shelf products on the market. \newline
+		\textbf{Software:} Software and firmware produced must all be open source. The software must be editable via Arduino IDE to ensure it is accessible for the community of arduino-based open source user community and clientele the product is being made for. \newline
+		\textbf{Hardware:} The firmware must function on the AdaFruit Feather 32u4 and AdaFruit Feather M0 processors, while the shields that will be supported will be determined over the duration of the project.
 
-\subsection{Design Constraints}
-One microprocessor per module. Pin counts etc.
-(We will be consulting with Chet Udell to get more specifics on this)
+		\subsubsection{Reliability}
+		Within the scope of Project LOOM as an open source project, it will not be held to any standards, as is dictated in the license that is provided with it.
+		Within the scope of the Project LOOM as Group 36’s Senior Capstone Project, Group 36 is expected to produce code that is robust and modular enough to be compiled onto a variety of combinations of boards and shields. As Group 36 is strictly responsible for software and firmware, the reliability of the physical product is disjoint from our responsibilities.
 
-\subsubsection{Reliability}
-Devices that are transmitting relatively continuous streams of data (i.e. every 10 ms) should have no problem with a dropped packet or two here and there, assuming the connection is solid; so, they can transmit using UDP. Devices that transmit data over longer periods of time (i.e. every 10 minutes) will need to have a TCP/IP connection that verifies the receipt of the data.
-\subsubsection{Security}
-The security of the modules is somewhat out of the scope of the project--anyone with physical access to the module would be able to overwrite the behavior of the module. However, to begin with, the chips will have a hard-coded list of known connections which it will query when receiving a new connection.
+		\subsubsection{Security}
+		Rigorous attention to the security of the modules is not a primary focus within the scope of the Senior Capstone project - anyone with physical access to the module would be able to overwrite the behavior of the module. However, to begin with, the chips will have a hard-coded list of known connections which it will query when receiving a new connection.
 
-\subsubsection{Maintenance}
-As mentioned under Reliability, the interface should give an alert to the user if one of the modules that is meant to operate on the long-term is no longer transmitting its data in the expected interval. This will allow a user to troubleshoot the problem.
+		\subsubsection{Maintenance}
+		As mentioned under section 3.5.1 Reliability, the interface should give an alert to the user if one of the modules that is meant to operate on the long-term is no longer transmitting its data in the expected interval. This will allow a user to troubleshoot the problem.
 
 \newpage
 
