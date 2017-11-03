@@ -87,7 +87,7 @@
 	\subsection{Scope}
 	With Project LOOM, we aim to create an open-source, plug-and-play, suite of modular building blocks, the extensible and easy programmability of which expands the demographic of people capable of implementing Internet of Things solutions. For users with limited technical expertise to create complex systems, we aim to build a system that abstracts out the more technical details, allowing them to focus on their system more than the implementation of the modules. The system should also be usable by higher level students and experts by allowing them to modify or write their own firmware, and create new modules. Project LOOM will be developed for university faculty demos of functionality, possible subsequent commercialization is currently outside of the scope of the Senior Capstone project.
 	\subsection{Definitions, Acronyms, and Abbreviations}
-	\textbf{The Internet of Things (IoT):} Entails an aggregate of systems (many embedded) capable of reading, transmitting, receiving, processing, and acting upon data. This often takes the form of a network of remotely connected devices that can be used for the purpose of autonomous data collection, or remote control and automation of various systems. \newline
+	\textbf{The Internet of Things (IoT):} Entails an aggregate of systems (many of which are embedded) capable of reading, transmitting, receiving, processing, and acting upon data. This often takes the form of a network of remotely connected devices that can be used for the purpose of autonomous data collection, or remote control and automation of various systems. \newline
 	\textbf{Module:} An interchangeable, self-contained device that can be connected to an IoT network with minimal configuration. Connects to other modules to combine behaviors (i.e. a sensor attached to a WiFi adapter becomes a sensor that transfers data over WiFi). \newline
 	\textbf{Gateway:} A wired or wireless node connecting multiple devices on a network (e.g. WiFi, Ethernet)
 
@@ -119,7 +119,7 @@
 			\end{itemize}
 		
 		\subsubsection{Hardware Interfaces}
-		The following hardware interfaces (not necessarily exhaustive) will be used to make the modules. The construction itself is not a part of Group 36’s portion of Project LOOM:
+		The following hardware interfaces (not necessarily exhaustive) will be used to make the modules. The construction itself is not a part of Group 36's portion of Project LOOM:
 		\begin{itemize}
 			\item AdaFruit FeatherM0
 			\item AdaFruit Feather32u4
@@ -149,8 +149,8 @@
 	\subsection{Constraints}
 		\textbf{Hardware Limitations:} The software must run on the following hardware: AdaFruit FeatherM0, AdaFruit Feather32u4, MPU6050i. \newline
 		\textbf{Parallel Operation:} Sending and receiving should be possible at the same time, especially to and from any central computer. \newline
-		\textbf{Reliability Requirements:} Will send notification if system has detected that a module is broken, offline, or otherwise less than functional. However, the project is not currently being held to any standards and reliability will not be quantified. \newline
-		\textbf{Safety and Security:} Will be addressed to a reasonable effort, but not to the point that it restricts progress of the rest of the project.
+		\textbf{Reliability Requirements:} The system will send a notification if system has detected that a module is broken, offline, or otherwise less than functional. However, the project is not currently being held to any standards and reliability will not be quantified. \newline
+		\textbf{Safety and Security:} Both will be addressed to a reasonable effort, but not to the point that it restricts progress of the rest of the project.
 	
 	\subsection{Assumptions and Dependencies}
 	Our work will be built off of the framework of existing hardware and software of Project LOOM. We are assuming that our firmware and software will be run on functional hardware developed by a sister team of Project Loom. The firmware for the modules in Project LOOM will be developed with the Arduino development environment, and the interface for reading the data will be a plugin for MaxMSP.
@@ -189,7 +189,7 @@
 
 		\subsubsection{Reliability}
 		Within the scope of Project LOOM as an open source project, it will not be held to any standards, as is dictated in the license that is provided with it.
-		Within the scope of the Project LOOM as Group 36’s Senior Capstone Project, Group 36 is expected to produce code that is robust and modular enough to be compiled onto a variety of combinations of boards and shields. As Group 36 is strictly responsible for software and firmware, the reliability of the physical product is disjoint from our responsibilities.
+		Within the scope of the Project LOOM as Group 36's Senior Capstone Project, Group 36 is expected to produce code that is robust and modular enough to be compiled onto a variety of combinations of boards and shields. As Group 36 is strictly responsible for software and firmware, the reliability of the physical product is disjoint from our responsibilities.
 
 		\subsubsection{Security}
 		Rigorous attention to the security of the modules is not a primary focus within the scope of the Senior Capstone project - anyone with physical access to the module would be able to overwrite the behavior of the module. However, to begin with, the chips will have a hard-coded list of known connections which it will query when receiving a new connection.
