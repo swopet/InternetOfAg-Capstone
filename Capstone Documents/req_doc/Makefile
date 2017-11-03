@@ -33,6 +33,7 @@ $(PSF):%.ps: %.dvi
 
 $(PDF): %.pdf: %.ps
 	ps2pdf $<
+	make clean
 
 show: $(TRG)
 	@for i in $(TRG) ; do $(XDVI) $$i & done
@@ -43,7 +44,10 @@ showps: $(PSF)
 all: pdf
 
 clean:
-	rm -f *.pdf *.ps *.dvi *.out *.log *.aux *.bbl *.blg *.pyg
+	rm -f *.ps *.dvi *.out *.log *.aux *.bbl *.blg *.pyg *.toc
+	
+cleanall:
+	rm -f *.pdf *.ps *.dvi *.out *.log *.aux *.bbl *.blg *.pyg *.toc
 
 .PHONY: all show clean ps pdf showps
 
