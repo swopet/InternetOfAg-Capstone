@@ -5,6 +5,7 @@
 \usepackage{enumitem}
 \usepackage{geometry}
 \usepackage{pgfgantt}
+\usepackage{float}
 \usepackage{caption}
 \captionsetup{justification=centering}
 
@@ -131,10 +132,9 @@ This design document is intended to be used as a map of the planned design decis
 This document is intended for use by Capstone Group 36, the Capstone instructors, and the Project LOOM client as the official documentation of design decisions for the main components of the project. The rationale behind each decision is provided, as it the method of implementing each component.
 
 \subsection{Reference Material}
-\renewcommand{\listfigurename}{List of plots}
-        \listoffigures
-
-
+    \renewcommand{\listfigurename}{}
+    \vspace{-40pt}
+    \listoffigures
 
 \section{Glossary}
     \textbf{Gateway:} A wired or wireless node connecting multiple devices on a network (e.g. WiFi, Ethernet)
@@ -146,6 +146,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
     \textbf{LOOM Kit:} A set of pre-assembled modules with specific input and output capabilities that will be produced and distributed as an end goal of Project LOOM. Each kit should have the potential to be its own IoT Network. 
 
     \textbf{Module:} An interchangeable, self-contained device that can be connected to an IoT network with minimal configuration. Connects to other modules to combine behaviors (e.g. a sensor attached to a WiFi adapter becomes a sensor that transfers data over WiFi).
+
 
 
 
@@ -216,11 +217,18 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
 \paragraph{Design Implementation}
     The user interface will be designed as processing modules. These modules contain a set of similar functions and can receive and output streams of data. Modules can be linked together to pass information from one to another. The Project LOOM client, Dr. Chet Udell, has prepared a base set of data processor modules that can be used in Max. The set of data processor plugins provided by Dr. Udell include different ways of reading information from a network, a variety of modules to process, convert, or display this information, and modules to send data back out to the network. As more hardware or specialized needs arise, more modules can be developed to provide relevant displays, processing, and I/O. The modules encapsulate objects and program, but can be opened and modified by both developers and users to tailor their (the modules') functionality.
 
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
         \caption{NeoPixel Presentation View}
         \label{fig:neopixel_pres}
-        \includegraphics[scale=7]{neopixel_presentation.eps}         
+        \includegraphics[width=8cm]{neopixel_presentation.eps}         
+     \end{figure}
+
+     \begin{figure}[H]
+        \centering
+        \caption{Edit NeoPixel Module}
+        \label{fig:neopixel_edit}
+        \includegraphics[width=10cm]{neopixel_edit.eps}         
      \end{figure}
 
 
@@ -478,7 +486,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
 
 
 \section{Timeline}
-    \begin{figure}[h]
+    \begin{figure}[H]
         \caption{Timeline}
         \label{fig:gantt_chart}
         \noindent\resizebox{\textwidth}{!}{
