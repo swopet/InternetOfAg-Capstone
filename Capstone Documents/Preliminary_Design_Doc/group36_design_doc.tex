@@ -9,16 +9,13 @@
 \usepackage{caption}
 \captionsetup{justification=centering}
 
-
 \geometry{textheight=9.5in, textwidth=7in}
 
 \usepackage[parfill]{parskip}
 
 \include{pygments.tex}
 
-
 \newcommand{\subparagraph}{}
-
 
 % Reformat section and subsection styles
 \usepackage{titlesec}
@@ -26,49 +23,39 @@
 
 \titleformat{\section}
 {\normalfont\huge\bfseries\sffamily}{\thesection}{1em}{}
-% \titlespacing*{\section}
-% {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \titleformat{\subsection}
 {\normalfont\large\bfseries\sffamily}{\thesubsection}{1em}{}
-% \titlespacing*{\subsection}
-% {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \titleformat{\subsubsection}
 {\normalfont\normalsize\bfseries\sffamily}{\thesubsubsection}{1em}{}
-% \titlespacing*{\subsubsection}
-% {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \titleformat{\paragraph}
 {\normalfont\normalsize\sffamily\itshape}{\theparagraph}{2em}{}
-% \titlespacing*{\paragraph}
-% {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-
-
 
 
 % 1. Fill in these details
-\def \CapstoneTeamName{		}
-\def \CapstoneTeamNumber{		36}
-\def \GroupMemberOne{			Trevor Swope}
-\def \GroupMemberTwo{			William Selbie}
-\def \GroupMemberThree{			Luke Goertzen}
-\def \CapstoneProjectName{		Project LOOM}
-\def \CapstoneSponsorCompany{	Openly Published Environmental Sensing Lab}
-\def \CapstoneSponsorPerson{	Chet Udell}
+\def \CapstoneTeamName{     }
+\def \CapstoneTeamNumber{       36}
+\def \GroupMemberOne{           Trevor Swope}
+\def \GroupMemberTwo{           William Selbie}
+\def \GroupMemberThree{         Luke Goertzen}
+\def \CapstoneProjectName{      Project LOOM}
+\def \CapstoneSponsorCompany{   Openly Published Environmental Sensing Lab}
+\def \CapstoneSponsorPerson{    Chet Udell}
 
 % 2. Uncomment the appropriate line below so that the document type works
-\def \DocType{	%Problem Statement
-				%Requirements Document
-				% Technology Review
-				Preliminary Design Document
-				%Progress Report
-				}
-			
+\def \DocType{  %Problem Statement
+                %Requirements Document
+                % Technology Review
+                Preliminary Design Document
+                %Progress Report
+                }
+            
 \newcommand{\NameSigPair}[1]{\par
-\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\makebox[2.75in][r]{#1} \hfil   \makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill        \makebox[.75in]{\hrulefill}}
 \par\vspace{-12pt} \textit{\tiny\noindent
-\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+\makebox[2.75in]{} \hfil        \makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill  \makebox[.75in][r]{Date}}}}
 % 3. If the document is not to be signed, uncomment the RENEWcommand below
 %\renewcommand{\NameSigPair}[1]{#1}
 
@@ -77,7 +64,7 @@
 \begin{titlepage}
     \pagenumbering{gobble}
     \begin{singlespace}
-    	% \includegraphics[height=4cm]{coe_v_spot1}
+        % \includegraphics[height=4cm]{coe_v_spot1}
         \hfill 
         % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
         %\includegraphics[height=4cm]{CompanyLogo}   
@@ -123,13 +110,13 @@
 
 \section{Introduction}
 \subsection{Scope}  
-With Project LOOM, we aim to create an open-source, plug-and-play, suite of modular building blocks, the extensible and easy programmability of which expands the demographic of people capable of implementing Internet of Things solutions. For users with limited technical expertise to create complex systems, we aim to build a system that abstracts out the more technical details, allowing them to focus on their system more than the implementation of the modules. The system should also be usable by higher level students and experts by allowing them to modify or write their own firmware, and create new modules. Project LOOM will be developed for university faculty demos of functionality, possible subsequent commercialization is currently outside of the scope of the Senior Capstone project.
+    With Project LOOM, we aim to create an open-source, plug-and-play, suite of modular building blocks, the extensible and easy programmability of which expands the demographic of people capable of implementing Internet of Things solutions. For users with limited technical expertise to create complex systems, we aim to build a system that abstracts out the more technical details, allowing them to focus on their system more than the implementation of the modules. The system should also be usable by higher level students and experts by allowing them to modify or write their own firmware, and create new modules. Project LOOM will be developed for university faculty demos of functionality. Possible subsequent commercialization is currently outside of the scope of the Senior Capstone project.
 
 \subsection{Purpose}
-This design document is intended to be used as a map of the planned design decisions and process for Group 36's portion of the implementation of Project LOOM as described in the scope section above.
+    This design document is intended to be used as a map of the planned design decisions and process for Group 36's portion of the implementation of Project LOOM as described in the scope section above.
                 
 \subsection{Intended audience}
-This document is intended for use by Capstone Group 36, the Capstone instructors, and the Project LOOM client as the official documentation of design decisions for the main components of the project. The rationale behind each decision is provided, as is the method of implementation.
+    This document is intended for use by Capstone Group 36, the Capstone instructors, and the Project LOOM client as the official documentation of design decisions for the main components of the project. The rationale behind each decision is provided, as is the method of implementation.
 
 \subsection{Reference Material}
     \renewcommand{\listfigurename}{}
@@ -137,7 +124,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
     \listoffigures
 
 \section{Glossary}
-    \textbf{Gateway:} A wired or wireless node connecting multiple devices on a network (e.g. WiFi, Ethernet)
+    \textbf{Gateway:} A wired or wireless node connecting multiple devices on a network (e.g. via WiFi or Ethernet)
 
     \textbf{Internet of Things (IoT) Network:} Entails an aggregate of systems (many of which are embedded) capable of reading, transmitting, receiving, processing, and acting upon data. This often takes the form of a network of remotely connected devices that can be used for the purpose of autonomous data collection, or remote control and automation of various systems.
 
@@ -147,6 +134,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
 
     \textbf{Module:} An interchangeable, self-contained device that can be connected to an IoT network with minimal configuration. Connects to other modules to combine behaviors (e.g. a sensor attached to a WiFi adapter becomes a sensor that transfers data over WiFi).
 
+    \textbf{Shield:} A circuit board that can be attached to another processor to extend the latter's functionality. The combination of microprocessors and shields will be used to make modules.
 
 
 
@@ -156,27 +144,30 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
 
 \subsubsection{Project LOOM Client}
     Dr. Chet Udell
+
     Interests: Wants a functional, modular Internet of Things Rapid Prototyping System, and proofs of concept to demonstrate it.
 
 \subsubsection{Other Project LOOM Developers}
     Designers contributing to Project LOOM that are not part of the Group 36 developer subset
+
     Interests: Will need to be able to work with and around any design decisions or systems made by Group 36.
 
 \subsubsection{Users}
     The eventual users of the Project LOOM Rapid Internet of Things Prototyping System
+
     Interests: Should be able to easily use the system designed and implemented by Project LOOM developers.
 
 \subsection{Design Views}
     There are a variety of perspectives that stakeholders might hold when viewing Project LOOM. In order of decreasing abstraction they are:
 
 \subsubsection{User View}
-    As Project LOOM is being developed for users, the users are going to see the system in a different way than the developers. They are going to be concerned with the user interfaces and what the IoT modules do, not how they do so. This view is one of the highest level views, as most users will not need to be presented with the implementation details.
+    As Project LOOM is being developed for users, the users are going to see the system in a different way than the developers. They are going to be concerned with the user interfaces and what the IoT modules do, not necessarily how they do so. This view is one of the highest level views, as most users will not need to be presented with the implementation details.
 
 \subsubsection{Developer View}
     The Project LOOM developers need to be able to see the interactions of the modules that are being produced and programmed. They do not always necessarily need to know how another developer implemented a module's functionality, but they should be able to get an overview of the entire system, and the relationships and interactions between components.
 
 \subsubsection{Communication View}
-    The communication between components of an Internet of Things system is important, but is generally best left abstracted out of most views. Some developers only need to know that modules are communicating, perhaps distinguishing between wired and wireless, not needing the details of which protocol or format is actually in use. These details are described in the Communication View.
+    The communication between components of an Internet of Things system is important, but is generally best left abstracted out of most views. Some developers only need to know that modules are communicating, perhaps distinguishing between wired and wireless, not needing the details of which protocol or format is in use. These details are described in the Communication View.
 
 
 
@@ -207,7 +198,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
     \end{itemize}
 
 \paragraph{Design Elements}
-    Max/MSP will be used to implement the user interface. Max/MSP is a modular visual programming interface developed by Cycling '74 primarily for use in controlling interactive music and multimedia. The software can be enhanced with extended functionality through creating new objects with a provided API or by writing code in Java or Javascript. Additionally, the user interface one designs with Max for their project is not entirely distinct from the program structure itself. The functionality of the program is primarily developed graphically, and a presentation mode allows the user to modify the layout and appearance of the program objects to create an interface, without affecting the underlying program flow. Max can easily be connected to microprocessors such as Arduino, and receive input from and output to a variety peripherals, including controllers, DMX lighting, projectors, and audio. \cite{max}
+    Max/MSP will be used to implement the user interface. Max/MSP is a modular, visual programming interface developed by Cycling '74 primarily for use in controlling interactive music and multimedia. The software can be enhanced with extended functionality through creating new objects via a provided API or by writing code in Java or Javascript. Additionally, the user interface one designs with Max for their project is not entirely distinct from the program structure itself. The functionality of the program is primarily developed graphically, and a presentation mode allows the user to modify the layout and appearance of the program objects to create an interface, without affecting the underlying program flow. Max can easily be connected to microprocessors such as Arduino, and receive input from and output to a variety peripherals, including controllers, DMX lighting, projectors, and audio. \cite{max}
 
     The full version of Max costs \$399, or about \$8-10 per month for a subscription depending on the subscription length, with discounts available for students. The software runs on both Windows and macOS, and can be connected to an iPad via Cycling '74's Mira app. \cite{buymax}
 
@@ -241,7 +232,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
 \paragraph{Design Concerns}
     The external visualization of I/O component of Project LOOM can be addressed with one of a variety of services, however, providing users with multiple supported options reduces the probability that design decisions made by the developers are restrictive to the users. Further, an approximate priority will be presented as to the order in which solutions will planned for implementation.
 
-    Each feasible visualization option will need to easily connect to an IoT network (from the user's perspective) and user be able to use the variety of services it may present. There is preference to the options that are cheaper if not free, as that expands the audience that can fully use Project LOOM.
+    Each feasible visualization option will need to easily connect to an IoT network (from the user's perspective) and user be able to use the variety of services it may present. There is preference to the options that are cheaper, if not free, as that expands the audience that can fully use Project LOOM.
 
     Summary of Criteria:
     \begin{itemize}[noitemsep,topsep=-10pt]
@@ -301,7 +292,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
     PushingBox provides a simple API for triggering actions via HTTP requests or emails and directed to a variety of services. These triggers can come from many sources, including Arduino (or other microprocessors), the aforementioned IFTTT, and custom scripts. PushingBox currently supports actions such as notifications to many operating systems, emails, HTTP requests, or writing to Google Docs. Usage of the PushingBox API is free. \cite{pushingbox}
 
 \paragraph{Design Rationale}
-    While some of the listed systems above have overlapping features, support for all of them permits user the widest variety of options. All can be used for free, however, among the three, IFTTT is the most refined, while PushingBox is the least. As such, IFTTT has more options for triggers and actions than PushingBox does, possibly making the latter redundant to support. Further, IFTTT is more user-friendly to use. Adafruit falls somewhere in between compared to the other two, but has the other uses as presented in the External Visualization of I/O. If the user is already using Adafruit for monitoring, it would not be much more effort to include triggers and events. Again, Adafruit's documentation, community, and examples make the platform enticing for users.
+    While some of the listed systems above have overlapping features, support for all of them permits users the widest variety of options. All can be used for free, however, among the three, IFTTT is the most refined, while PushingBox is the least. As such, IFTTT has more options for triggers and actions than PushingBox does, possibly making the latter redundant to support. Further, IFTTT is more user-friendly to use. Adafruit falls somewhere in between compared to the other two, but has the other uses as presented in the External Visualization of I/O. If the user is already using Adafruit for monitoring, it would not be much more effort to include triggers and events. Again, Adafruit's documentation, community, and examples make the platform enticing for users.
 
     Based on the refinement and features, Adafruit and IFTTT will likely be prioritized for support. It may also be possible to use IFTTT to do everything that PushingBox does, thus eliminating the need for the latter. This will be determined as these begin being implemented. Regardless of which ones are implemented, they are generally all able to work with the others.
 
@@ -316,12 +307,17 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
 
 
 \subsection{Developer Viewpoint: Composition}
-    Make diagram – Ishield, Attachments to Ishield, User Interfaces, Connected services / software, Access point, etc...
-
-    This viewpoint is primarily applicable to the Project LOOM developers, as to be able to see the relationships between all modules, devices, and software of the system. The composition of the project will depict this along with the overall architecture that describes the nature and structure of the relationships between the modules and gateways in an IoT network.
+    This viewpoint is primarily applicable to the Project LOOM developers, as to be able to see the relationships between all modules, devices, and software of the system. The composition of the project will depict these relationships, along with the overall architecture that describes the nature and structure of the relationships between the modules and gateways in an IoT network.
 
 \subsubsection{Network Architecture}
-    The architecture of the network will determine the route that data will take from its starting point (the module that gathered this data), to its ending point (wherever the data is sent to last). Clearly this route always starts with the modules attached to sensors, but after that point then the route taken is entirely architecture dependent. The ideal network architecture is simple to implement, flexible in how it can be applied, and extensible in its ability to be scaled up or down in size. 
+    The architecture of the network will determine the route that data will take from its starting point (the source of the input or data), to its ending point (wherever the data is sent to last). This route starts with either the modules attached to sensors or user input, but after that point then the route taken is entirely architecture dependent. 
+
+    The ideal network architecture is:
+    \begin{itemize}[noitemsep,topsep=-10pt]
+        \item Simple to implement
+        \item Flexible in how it can be applied,
+        \item Extensible in its ability to be scaled up or down in size. 
+    \end{itemize}
 
 \paragraph{Authorship}
     Project LOOM Developers
@@ -335,19 +331,20 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
         \item Transmitting data to another device on the network
         \item Receiving data from another device on the network
         \item Processing gathered or received data
-        \item Transmitting data to a device connected to the world wide web
-	\end{itemize}
-	
-	However, not all of the modules will need to perform each of these functions, so it is necessary to decide how the network will be architected to make the most efficient use of the kits' resources. The criteria upon which network structures will be graded are: 
-	
-	\begin{itemize}[noitemsep,topsep=-10pt]
+        \item Transmitting data to a device connected to the world wide web\\
+    \end{itemize}
+    
+    However, not all of the modules will need to perform each of these functions, so it is necessary to decide how the network will be architected to make the most efficient use of the kits' resources. 
+
+    The criteria upon which network structures will be evaluated are: 
+    \begin{itemize}[noitemsep,topsep=-10pt]
         \item Cost efficiency of required modules
         \item Flexibility of application
         \item Extensibility
     \end{itemize}
 
 \paragraph{Design Elements}
-    Project LOOM plans to implement a Gateway Centralized architecture, wherein each node in the network is either a module or a gateway. Modules are capable of gathering and transmitting data, or actuating and receiving data. Modules gathering data will periodically transmit data to a the network's gateway. The gateway will process the data, and if certain criteria are met, send commands to the modules. The gateway can also transmit the received and processed data some external system, like the aforementioned Plotly and Adafruit IO. 
+    Project LOOM plans to implement a Gateway Centralized architecture, wherein each node in the network is either a module or a gateway. Modules are capable of gathering and transmitting data, or actuating and receiving data. Modules gathering data will periodically transmit data to a the network's gateway. The gateway will process the data, and if certain criteria are met, send commands to the modules. The gateway can also transmit the received and processed data to some external system, such as the aforementioned Plotly and Adafruit IO. 
 
 \paragraph{Design Rationale}
     Gateway centralization is a cost efficient and extensible architecture because of the specialization that it requires in each module. By minimizing the required functionality in each module while still maintaining the same overall system capabilities, each module will be cheaper and simpler to use with no overall loss in what the IoT network as a whole can achieve. It is also more extensible as the structure can be used recursively wherein the gateways in each of several smaller IoT networks can transmit aggregate data to the gateway of a larger network. With this method of usage, the architecture can be applied to networks and projects of any size.
@@ -355,8 +352,16 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
 \paragraph{Design Implementation}
     Project LOOM will implement a gateway centralized network by having each module in the network with the same wireless communication platform send data to and receive data from a central node, the gateway. The gateway would then be the only node in the network responsible for transmitting data to its end destination, regardless of where that is. Each module will be capable of wireless communication, which it will use to send packets of data to the gateway or receive packets from the gateway. The gateway will upon receiving packets then process them accordingly and send the processed packets of data to the next recipient, either in the IoT network or outside of it. 
 
+    \begin{figure}[H]
+        \centering
+        \caption{Network Architecture}
+        \label{fig:network_architecture}
+        \includegraphics[width=16cm]{network_architecture.eps}         
+     \end{figure}
+
+
 \subsubsection{Module Control Structure}
-    The module control structure will determine where the instructions and routines that the modules follow come from. The control structure could range from each module solely providing their own instructions to modules containing no internal instructions. The ideal module control structure for Project LOOM is somewhere in between, such that modules can be autonomous enough to be simple and robust, but allows for enough external control to make the system flexible.
+    The module control structure will determine where the instructions and routines that the modules follow come from. The control structure could range from each module solely providing their own instructions, to modules containing no internal instructions. The ideal module control structure for Project LOOM is somewhere in between, such that modules can be autonomous enough to be simple and robust, but allows for enough external control to make the system flexible.
 
 \paragraph{Authorship}
     William Selbie
@@ -385,7 +390,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
 
 
 \subsection{Communication Viewpoint: Interaction}
-    The communication viewpoint describes the means in which different modules and parts of the network communicate, including network protocols, data formats, and the interfaces.
+    The communication viewpoint describes the means in which different modules and parts of the network communicate, including network protocols, data formats, and interfaces.
 
 \subsubsection{Networking Protocols}
     For devices to send packets wirelessly amongst themselves, there needs to be an expected format (or protocol) of how much data is being sent in one packet and to which device. Networking protocols handle both of these by including a header that describes the intended recipient or recipients of a packet and the size of the packet itself. We also need to understand the algorithms associated with flow control, congestion avoidance, and acknowledgement routines.
@@ -397,19 +402,19 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
     We need to establish and use a connection of some kind to transmit packets both module-to-module, and from modules to a central processing hub. We need a reliable way to deal with dropped packets and compact packets. We need this protocol to be well-supported for the boards that we develop firmware for.
 
 \paragraph{Design Elements}
-    TCP/IP \cite{TCP} requires devices to connect to a host which then handles connections based on subnet masks between devices. TCP/IP has the advantage of a reliable connection that tells you when packets are dropped, but this brings with it a small amount of overhead to maintaining the connection for every transmission and re-sending dropped packets.
+    TCP/IP requires devices to connect to a host which then handles connections based on subnet masks between devices. TCP/IP has the advantage of a reliable connection that tells you when packets are dropped, but this brings with it a small amount of overhead to maintaining the connection for every transmission and re-sending dropped packets. \cite{TCP}
 
-    UDP \cite{UDP} broadcasts datagrams without any acknowledgement. It has no control over congestion avoidance, packet retransmission, or flow control. While UDP may not have the reliability advantages of TCP/IP packets, it does have the advantage of very lightweight packets, and implementing basic acknowledgement functionality under UDP is not difficult. It also has the advantage of using subnet masking; so if we wanted to send a single packet intended for multiple different devices on the connection, we are able to do that.
+    UDP broadcasts datagrams without any acknowledgement. It has no control over congestion avoidance, packet retransmission, or flow control. While UDP does not have the reliability advantages of the TCP/IP protocols, it does have the advantage of lightweight packets, and implementing basic acknowledgement functionality under UDP is not difficult. UDP also has the advantage of using subnet masking; so if we wanted to send a single packet intended for multiple different devices on the connection, we are able to do that. \cite{UDP}
 
 \paragraph{Design Rationale}
-    We will be using primarily UDP to transmit packets to and from devices. The ability to use subnet masking to broadcast to all devices on a network or on a subnet is attractive for our purposes, and most of the time a dropped packet will not be critical. For cases where a dropped packet is unacceptable, we will use a TCP/IP acknowledgement protocol to ensure the packet is received.
+    We will primarily be using UDP to transmit packets to and from devices. The ability to use subnet masking to broadcast to all devices on a network or on a subnet is beneficial for our purposes, and most of the time, a dropped packet will not be critical. For cases where a dropped packet is unacceptable, we will use a TCP/IP acknowledgement protocol to ensure the packet is received.
 
 \paragraph{Design Implementation}
-    Using the WiFi101 library for Arduino, we will send and receive packets to and from the modules on an established connection. For most data-reading and simple actuator commands, we will transmit a UDP packet containing an instruction. To send a packet to multiple devices--for example, on the subnet 192.168.1.x--we will transmit to the subnet mask of those devices (i.e. 192.168.1.255). For critical packets, like those containing a reconfiguration command, we will implement an ACK/NACK routine with TCP/IP to ensure that those packets are received and interpreted correctly.
+    Using the WiFi101 library for Arduino, we will send and receive packets to and from the modules on an established connection. For most data-reading and simple actuator commands, we will transmit a UDP packet containing an instruction. To send a packet to multiple devices, on the subnet 192.168.1.x for example, we will transmit to the subnet mask of those devices (i.e. 192.168.1.255). For critical packets, such as those containing a reconfiguration command, we will implement an ACK/NACK (acknowledgement) routine with TCP/IP to ensure that those packets are received and interpreted correctly.
 
 
 \subsubsection{Data Transfer Format}
-    In an Internet Of Things network such as one created using Project LOOM, data is constantly being transmitted amongst the nodes in the network. Devices need to know how to interpret this data, and for that to happen the data needs to have a consistent format that is meaningful to the nodes on the network and ideally to a user who can see the raw data.
+    In an Internet Of Things network such as one created using Project LOOM, data is constantly being transmitted amongst the nodes in the network. Devices need to know how to interpret this data, and for that to happen the data needs to have a consistent format that is meaningful to the nodes on the network, and ideally to a user who can see the raw data.
 
 \paragraph{Authorship}
     Trevor Swope
@@ -424,21 +429,21 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
     \end{itemize}
 
 \paragraph{Design Elements}
-    Open Sound Control \cite{OSC} is a protocol designed specifically for communicating between electronic musical instruments and stage performance devices. An OSC packet can take one of two forms: an OSC bundle or an OSC message. An OSC message contains an address beginning with a forward-slash "/", a tag indicating the type of data, the data, and an optional time tag. An OSC bundle contains a header indicating that it is a bundle "\#bundle", a number of items (which can each themselves are either OSC messages or bundles), the data items, and a time tag. For our purposes, Open Sound Control has the advantage of being highly supported by numerous libraries, as well as there being an existing parsing scheme for MaxMSP, which we are using to develop the user interface.
+    Open Sound Control is a protocol designed specifically for communicating between electronic musical instruments and stage performance devices. An OSC packet can take one of two forms: an OSC bundle or an OSC message. An OSC message contains an address beginning with a forward-slash "/", a tag indicating the type of data, the data, and an optional time tag. An OSC bundle contains a header indicating that it is a bundle "\#bundle", a number of items (which can be either OSC messages or bundles), the data items, and a time tag. For our purposes, Open Sound Control has the advantage of being highly supported by numerous libraries, as well as there being an existing parsing scheme for MaxMSP, which we are using to develop the user interface. \cite{OSC} 
 
     Byte streams are just streams of structured raw data with a header identifying what type of struct is coming in, and it will be up to the microprocessors to understand the header and parse the data. One advantage of sending data in byte streams is minimized header sizes; instead, it sends just as much data as there is with a smaller header indicating the type and size of the packet. However, this does increase the burden on the microprocessors somewhat to know what kind of data it might receive. It also increases the burden on the client to know how to parse the structure into something readable by the user, whereas OSC messages have verbose, readable addresses.
 
-    MQTT \cite{MQTT} is a protocol that works on top of a TCP/IP connection, requiring an external broker to establish the connection. This adds a little bit of overhead in transferring data between machines, but also handles the structure and parsing of the data for you, resulting in a potentially lower code footprint than other possible options. 
+    MQTT is a protocol that works on top of a TCP/IP connection, requiring an external broker to establish the connection. This adds a little bit of overhead in transferring data between machines, but also handles the structure and parsing of the data for you, resulting in a potentially lower code footprint than other possible options. \cite{MQTT}
 
 \paragraph{Design Rationale}
-    Open Sound Control is going to be our best bet for well-addressed packets, particularly between devices on a WiFi network and a hub. However, for longer-range transmissions over LoRa, raw byte streams containing readings are going to be a better bet; the hub can convert these into OSC messages or bundles for the user interface to interpret. 
+    Open Sound Control is going to be our best option for well-addressed packets, particularly between devices on a WiFi network and a hub. However, for longer-range transmissions over LoRa, raw byte streams containing readings are going to be a better choice; the hub can convert these into OSC messages or bundles for the user interface to interpret. 
 
 \paragraph{Design Implementation}
-    Using the OSC library for Arduino, we are able to route messages' addresses through a scheme similar to a file storage namespace system and dictate behavior on a device. The address for any message will always start with "/LOOM", and then will be followed by the name of the device and its instance number, for example, "/Ishield0", then by the particular behavior wanted or piece of data being received. An example of a full address might be "/LOOM/Ishield0/Port2/Neopixel/Red", indicating a command to set the neopixel red value on port 2 of Ishield 0 to the byte contained in the message. 
+    Using the OSC library for Arduino, we are able to route messages' addresses through a scheme similar to a file storage namespace system and dictate behavior on a device. The address for any message will always start with "/LOOM", and then will be followed by the name of the device and its instance number, for example, "/Ishield0", then by the particular behavior wanted or piece of data being received. An example of a full address might be "/LOOM/Ishield0/Port2/Neopixel/Red", indicating a command to set the neopixel red value on port 2 of Ishield 0 to the value of the byte contained in the message. 
 
 
 \subsubsection{Communication Interface}
-    We will be attaching different sensors and actuators to our base Feather M0 and 32u4 microprocessors; in order to get them to communicate correctly and reliably across the pin connection, we need to know and understand the protocol of the interface. 
+    We will be attaching different sensors and actuators to our base Feather M0 and 32u4 microprocessors. In order to get them to communicate correctly and reliably across the pin connection, we need to know and understand the protocol of the interface. 
 
 \paragraph{Authorship}
     Trevor Swope
@@ -447,7 +452,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
     The communication interface refers specifically to the communication between two attached devices with microprocessors. Since we will be attaching and removing shields and actuators like building blocks, it is important to have a clear understanding of the communications between these devices, and the advantages and disadvantages of the interfaces we choose to interact with.
 
 \paragraph{Design Elements}
-    The two types of communication interfacing we will be using are I2C (Inter-Integrated Circuit Interface) and SPI (Serial Peripheral Interface).  The actual hardware advantages and disadvantages of each of these communication interfaces is a bit out of the scope of the software and firmware views of the project, but we will still discuss the manner in which they are used on the devices. Both I2C and SPI are synchronous communication interfaces; that is, the master sends a clock signal to the slave device indicating the data rate. I2C additionally implements an extra ACK/NACK bit around each data frame, leading to high reliability. I2C also requires fewer pins than SPI; while connecting a single master to a single slave on an SPI bus requires four pins, and an additional chip select pin for each additional slave, I2C only requires two, and supports more than one master \cite{I2C} \cite{SPI}.
+    The two types of communication interfacing we will be using are I2C (Inter-Integrated Circuit Interface) and SPI (Serial Peripheral Interface). The hardware advantages and disadvantages of each of these communication interfaces is a bit out of the scope of the software and firmware views of the project, but we will still discuss the manner in which they are used on the devices. Both I2C and SPI are synchronous communication interfaces; that is, the master sends a clock signal to the slave device indicating the data rate. I2C additionally implements an extra ACK/NACK bit around each data frame, leading to high reliability. I2C also requires fewer pins than SPI; while connecting a single master to a single slave on an SPI bus requires four pins, and an additional chip select pin for each additional slave, I2C only requires two, and supports more than one master \cite{I2C} \cite{SPI}.
 
 \paragraph{Design Rationale}
     We will be using mostly I2C devices as they are easy to work with on the Feather M0 microprocessors we are using; however, some of the shields we are using will be SPI shields. Both of these interfaces are fast, reliable, and easy to work with in the Arduino development environment; particularly, if a new developer wants to write LOOM-based firmware for handling a new shield (whether it is a sensor or an actuator of some combination thereof), it will be as simple as configuring the I2C or SPI addressing and pin configuration and importing the appropriate libraries.
@@ -457,7 +462,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
 
 
 \subsubsection{Wireless Communication Methods}
-    IoT type solutions revolve largely around the ability for each of the things in that solution being able to communicate with each other. For Project LOOM it is infeasible for each of the modules to be physically connected to one another, so it is necessary for there to be a wireless method of communication. 
+    IoT type solutions revolve largely around the ability for each of the elements in that solution being able to communicate with each other. For Project LOOM it is infeasible for each of the modules to be physically connected to one another, so it is necessary for there to be a wireless method of communication. 
 
 \paragraph{Authorship}
     William Selbie
@@ -512,7 +517,7 @@ This document is intended for use by Capstone Group 36, the Capstone instructors
 
 
 \section{Conclusion}
-    The design and implementation of Project LOOM will continue as outlined above in the sections for the various key components of the project. Naturally due to the significant planned lifespan of the project, the specific implementations are likely to change at least slightly in the following two terms during which Group 36 will be involved with the project. Beyond this, the project roadmap is also dependent upon the rate at which other groups, such as the Hardware group, inside the Project LOOM team continue to work and achieve milestones. 
+    The design and implementation of Project LOOM will continue as outlined above in the sections for the various key components of the project. Naturally, due to the planned lifespan of the project, the specific implementations are likely to change at least slightly in the following two terms during which Group 36 will be involved with the project. In addition, the project roadmap is also dependent upon the rate at which other groups, such as the hardware group, inside the Project LOOM team continue to work on and achieve milestones. 
 
 
 
