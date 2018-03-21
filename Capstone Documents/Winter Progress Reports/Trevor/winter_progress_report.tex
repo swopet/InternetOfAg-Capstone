@@ -1,0 +1,206 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{geometry}
+% \usepackage{pgfgantt}
+% \usepackage{tabularx}
+\usepackage{longtable}
+
+% \usepackage{float}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{listings}
+\usepackage{changepage}
+\usepackage{floatrow}
+\usepackage{minted}
+\floatsetup[listing]{style=Plaintop, font=bf}    
+
+\captionsetup{justification=centering,font=bf}
+
+\include{pygments.tex}
+
+
+\geometry{textheight=9.5in, textwidth=7in}
+
+\usepackage[parfill]{parskip}
+
+
+% \newcommand{\subparagraph}{}
+
+% % Reformat section and subsection styles
+% \usepackage{titlesec}
+% \setcounter{secnumdepth}{4}
+
+% \titleformat{\section}
+% {\normalfont\huge\bfseries\sffamily}{\thesection}{1em}{}
+
+% \titleformat{\subsection}
+% {\normalfont\large\bfseries\sffamily}{\thesubsection}{1em}{}
+
+% \titleformat{\subsubsection}
+% {\normalfont\normalsize\bfseries\sffamily}{\thesubsubsection}{1em}{}
+
+% \titleformat{\paragraph}
+% {\normalfont\normalsize\sffamily\itshape}{\theparagraph}{2em}{}
+
+
+% 1. Fill in these details
+\def \CapstoneTeamName{     }
+\def \CapstoneTeamNumber{       36}
+\def \GroupMemberOne{           Trevor Swope}
+\def \CapstoneProjectName{      Project LOOM}
+\def \CapstoneSponsorCompany{   Openly Published Environmental Sensing Lab}
+\def \CapstoneSponsorPerson{    Chet Udell}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{  %Problem Statement
+                %Requirements Document
+                % Technology Review
+                % Preliminary Design Document
+                Winter Progress Report
+                }
+            
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil   \makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill        \makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil        \makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill  \makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+%\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+        % \includegraphics[height=4cm]{coe_v_spot1}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS 462 \DocType \par
+            {\large\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            \vfill
+            {\large Prepared for}\par
+            \Huge Kevin McGrath \\ Kirsten Winters \par
+            \vspace{5pt}
+            % {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            \CapstoneTeamName\par 
+            \vspace{5pt}
+            % {\Large
+            %     \NameSigPair{\GroupMemberOne}\par
+            %     \NameSigPair{\GroupMemberTwo}\par
+            %     \NameSigPair{\GroupMemberThree}\par
+            % }
+            \GroupMemberOne \\
+            \vspace{20pt}
+        }
+        \begin{abstract}
+            This document details the progress made in Winter Term 2018 on Project LOOM by me (Trevor Swope), a member of CS Capstone Group 36. It goes over what I did this week and gives a brief retrospective of where we are in the project.
+        \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+% \listoflistings
+% \listoftables
+\clearpage
+
+\section{Project Purpose and Goals}
+    With Project LOOM, we aim to create an open-source, plug-and-play, suite of modular building blocks, the extensible and easy programmability of which expands the demographic of people capable of implementing Internet of Things solutions. For users with limited technical expertise to create complex systems, we aim to build a system that abstracts out the more technical details, allowing them to focus on their system more than the implementation of the modules. The system should also be usable by higher level students and experts by allowing them to modify or write their own firmware, and create new modules. Project LOOM will be developed for university faculty demos of functionality.
+
+\section{Current Project Status}
+    Overall, the project is in a very good state going into Spring term. For my part, I have focused primarily on integrating all the different components into a single driver whose attributes can be configured easily by a user. The ease of setup at a faculty workshop Chet held in Week 9 was encouraging, and as we continue to expand the number of devices and protocols supported and automation of configuring the firmware, the possibilities for use will also expand. We only have a few things left to implement fully, and the bulk of our work in Spring term will go into testing and integrating everything together.
+
+\section{Retrospective}
+
+\subsection{Weekly Summary}
+\subsubsection*{Week One}
+    \begin{adjustwidth}{2.5em}{0pt}
+    \textbf{Summary -} Scheduled weekly meetings, recapped where we are in the project and what we have left to do.
+    \end{adjustwidth}
+
+\subsubsection*{Week Two}
+    \begin{adjustwidth}{2.5em}{0pt}
+    \textbf{Summary -} 	Sent Chet design document with revisions, worked on relay shield firmware and demo.
+    \end{adjustwidth}
+
+\subsubsection*{Week Three}
+    \begin{adjustwidth}{2.5em}{0pt}
+    \textbf{Summary -} Finished first draft of the template driver for that all LOOM WiFi motes will eventually use.
+    \end{adjustwidth}
+
+\subsubsection*{Week Four}
+    \begin{adjustwidth}{2.5em}{0pt}
+    \textbf{Summary -} Added dynamic instance number configuration to the WiFi template. Added client mode to the WiFi template and commands to flip back and forth. Added reset button (hold down for 8 seconds to go back to AP mode).
+
+    \end{adjustwidth}
+
+\subsubsection*{Week Five}
+    \begin{adjustwidth}{2.5em}{0pt}
+    \textbf{Summary -} Altered OSC bundle format, improved functionality of the bundle router in the WiFi template.
+    \end{adjustwidth}
+
+\subsubsection*{Week Six}
+    \begin{adjustwidth}{2.5em}{0pt}
+    \textbf{Summary -} Finished midterm progress report, continued working on servo integration, improved Github organization.
+    \end{adjustwidth}
+
+\subsubsection*{Week Seven}
+    \begin{adjustwidth}{2.5em}{0pt}
+    \textbf{Summary -} Completed WPA client mode integration for Servo Shield and Relay shield, set up Gyro to Servo demo, worked on documentation for open house demo.
+    \end{adjustwidth}
+
+\subsubsection*{Week Eight}
+    \begin{adjustwidth}{2.5em}{0pt}
+    \textbf{Summary -} Continued to improve WiFi driver, fixed a halting bug on switch from AP to client mode command.
+    \end{adjustwidth}
+
+\subsubsection*{Week Nine}
+    \begin{adjustwidth}{2.5em}{0pt}
+    \textbf{Summary -} Had open house at the Open Sensing lab on Monday and faculty demo workshop on Thursday. Got a lot of great feedback as well as assurance that our current system is easy to set up and explain.
+    \end{adjustwidth}
+
+\subsubsection*{Week Ten}
+    \begin{adjustwidth}{2.5em}{0pt}
+    \textbf{Summary -} Recapped progress in the term, discussed what we still need to get done. Looks like we will hit the ground running Week 1 of spring term. Started to work on script for generating the configuration for a driver and compiling and uploading outside of the Arduino IDE.
+    \end{adjustwidth}
+
+\subsection{Retrospective}
+
+\begin{center}
+\begin{longtable}{|p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}|} 
+% \noindent
+% \begin{tabularx}{|p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}| } 
+% \begin{tabularx}{0.9\linewidth}{|p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}| } 
+
+ \hline
+ \textbf{Positives} & \textbf{Deltas} & \textbf{Actions} \\ 
+ \hline 
+ We have successfully implemented WiFi, LoRa and nRF. & LoRa and nRF need to be implemented into the driver sketch so that everything is together and dynamically configurable by the user. & We will focus early spring term on integrating all of these elements together, as well as deploying a LoRa demo into the field.\\
+ \hline
+ Luke's MaxMSP sketches look fantastic and work incredibly well. & We will need to expand the number of modules and ensure they are all compatible with LoRa and nRF. & Need to make tutorial/demo videos showing how to set up and use the Max data processor to control LOOM devices.\\ 
+ \hline
+ We have met most of the requirements in the document fully, and some partially. & We will need to thoroughly test and clean up our code into a presentable, finished product. & Spring term will involve a lot of consolidating the work we have done and ensuring compatibility.\\ 
+ \hline
+ 
+\end{longtable}
+\end{center}
+
+\section{Conclusion}
+Overall, I am satisfied with the progress we made this term, and I think our client is as well. Our demonstrations at the open house and the faculty workshop went off smoothly and gave us good practice for expo, and we have a very clear idea about what we still need to do.
+
+% \bibliographystyle{IEEEtran}
+% \bibliography{bib}
+
+\end{document}
