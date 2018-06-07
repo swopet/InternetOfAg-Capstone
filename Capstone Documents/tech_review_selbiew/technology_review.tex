@@ -1,0 +1,242 @@
+\documentclass[onecolumn, draftclsnofoot,10pt, compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{setspace}
+
+\usepackage{geometry}
+\usepackage{cite}
+\geometry{textheight=9.5in, textwidth=7in}
+
+% 1. Fill in these details
+\def \CapstoneTeamName{		Project LOOM}
+\def \CapstoneTeamNumber{		36}
+\def \GroupMemberOne{			William Selbie}
+\def \GroupMemberTwo{			Trevor Swope}
+\def \GroupMemberThree{			Luke Goertzen}
+\def \CapstoneProjectName{		Project LOOM | Design an Internet of Things Rapid Prototyping System.}
+\def \CapstoneSponsorCompany{	}
+\def \CapstoneSponsorPerson{		Chet Udell}
+
+% 2. Uncomment the appropriate line below so that the document type works
+\def \DocType{	%Problem Statement
+				%Requirements Document
+				Technology Review
+				%Design Documeet
+				%Progress Report
+				}
+			
+\newcommand{\NameSigPair}[1]{\par
+\makebox[2.75in][r]{#1} \hfil 	\makebox[3.25in]{\makebox[2.25in]{\hrulefill} \hfill		\makebox[.75in]{\hrulefill}}
+\par\vspace{-12pt} \textit{\tiny\noindent
+\makebox[2.75in]{} \hfil		\makebox[3.25in]{\makebox[2.25in][r]{Signature} \hfill	\makebox[.75in][r]{Date}}}}
+% 3. If the document is not to be signed, uncomment the RENEWcommand below
+\renewcommand{\NameSigPair}[1]{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+    \pagenumbering{gobble}
+    \begin{singlespace}
+        \hfill 
+        % 4. If you have a logo, use this includegraphics command to put it on the coversheet.
+        %\includegraphics[height=4cm]{CompanyLogo}   
+        \par\vspace{.2in}
+        \centering
+        \scshape{
+            \huge CS Capstone \DocType \par
+            {\large\today}\par
+            \vspace{.5in}
+            \textbf{\Huge\CapstoneProjectName}\par
+            \vfill
+            {\large Prepared for}\par
+            \Huge \CapstoneSponsorCompany\par
+            \vspace{5pt}
+            {\Large\NameSigPair{\CapstoneSponsorPerson}\par}
+            {\large Prepared by }\par
+            Group\CapstoneTeamNumber\par
+            % 5. comment out the line below this one if you do not wish to name your team
+            \CapstoneTeamName\par 
+            \vspace{5pt}
+            {\Large
+                \NameSigPair{\GroupMemberOne}\par
+               %\NameSigPair{\GroupMemberTwo}\par
+               %\NameSigPair{\GroupMemberThree}\par
+            }
+            \vspace{20pt}
+        }
+       \begin{abstract} 
+		This document goes over the general goal of the project as well as my role in accomplishing this goal.
+		It then proceeds to outline and compare the various technological solutions that can be implemented to 
+		achieve the goal of the project.
+       \end{abstract}     
+    \end{singlespace}
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+% 7. uncomment this (if applicable). Consider adding a page break.
+%\listoffigures
+%\listoftables
+\clearpage
+
+% 8. now you write!
+\section{Introduction}
+	\subsection{Role}
+	I am on Project LOOM's Firmware team along with Trevor Swope. The role of the firmware
+	team is to write all of the sketches that will be run on the LOOM kits' hardware. The
+	sketches must be written as to allow for great modularity so that the Project LOOM
+	provided graphical user interface can program the hardware with the most minimal sketch
+	that can still achieve what the user wants.
+	
+	\subsection{Goal}
+	The aim of Project LOOM is to design kits of hardware that require minimal assembly
+	and have explicitly stated functionality. These kits can then be programmed by using 
+	a graphical user interface that gives the user control over the inputs, data processing,
+	and outputs of the system. I specifically will focus on which network platforms and 
+	architecture will be used to accomplish the Internet of Things aspect of Project LOOM.
+
+\section{Network Architecture}
+	After having its firmware programmed, each device in a Project LOOM kit is going to be 
+	capable of at least two of the following functions:
+	\begin{enumerate}
+		\item Gathering data from a sensor
+		\item Performing an action with an actuator
+		\item Transmitting data to another device on the network
+		\item Receiving data from another device on the network
+		\item Processing gathered or received data
+		\item Transmitting data to a device connected to the world wide web
+	\end{enumerate}
+	However, not all of the devices will need to perform each of these functions, so it is
+	necessary to decide how the networks will be architected to make the most efficient
+	use of the kits' resources.
+	\subsection{Distributed}
+	The first option for the network architecture is to have each device be capable of all
+	of these things. Each device in the network would then gather data, process that data,
+	and then transmit that data to a device connected to the world wide web. The devices 
+	connected to sensors would also contain the logic to transmit commands to devices
+	connected to actuators when the data being input met certain criteria. The benefit
+	of this would be that the devices could all be programmed in quite similar ways, and
+	there would be no central component which would stop the whole system if it broke. While
+	this is the most robust system, it is also the most bloated, a system in which only
+	one device is capable of processing data and relaying it to the outside world could
+	accomplish the same functionality with less overhead. One of Project LOOM's principal
+	goals is that kits have long lifespans (meaning minimal battery usage) and require
+	little maintainence. An architecture like this would also drive up the price of the kits,
+	as each chip would need great storage, battery life, and processing power, which is also
+	contrary to Project LOOM's goals.
+	\subsection{Gateway Centralized}
+	The second option is to have a Gateway Centralized architecture, wherein each device is
+	either a node or a gateway. Nodes are capable of gathering and transmitting data, or 
+	actuating and receiving data. Nodes gathering data will periodically transmit data to
+	a the network's gateway. The gateway will process the data, and if certain criteria are
+	met, send commands to the nodes that have actuators. The gateway will also periodically
+	transmit the received and processed data to a globally connected device. This architecture
+	uses more specialization than the previous, and as such each device will be leaner, as it
+	will be required to do less. The result of this will be a cheaper kit that lasts longer. 
+	However, in the event that the gateway does break, the whole system will stop working,
+	which makes it a more fragile solution than the Distributed network. It also limits the 
+	size of the kits and individual networks, because one gateway will only be able to support
+	a finite number of nodes. 
+	\subsection{Gateway Centralized with Cloud Service}
+	The third option is to create a gateway centralized network, with the single difference
+	that the gateway does not perform any data processing. Rather, it transmits all data to
+	a cloud computing service that will then process the data and distribute it to its end 
+	location. The benefit of this would be to make the gateway leaner by requiring it to do 
+	less, with the downside being that it adds another breakable part in the process. In 
+	projects where it would be necessary to measure data for extended periods of time, this
+	would be an ideal choice because it would provide the minimum functionality needed to 
+	do so. However, for projects requiring extensive use of actuators, then the gateway 
+	would need to do some processing, or be capable of receiving data from a globally 
+	connected device, which would add more pieces to the system than necessary. This would
+	also cause kits to cost more in order to pay for the cloud computing services, and may
+	not be as extensible as the other network architectures because of it. 
+	
+Overall, the Gateway Centralized architecture appears to be the best choice as it maintains
+as much flexibility as possible in usage, while allowing for the use of cost effective chips
+making up specialized devices.	
+
+\section{Inter-Device Communication Platform}
+Project LOOM has several options to choose from for how the devices in a network will talk to one another, 
+each with their own benefits and drawbacks. 
+	\subsection{WiFi}
+	The most obvious option for wireless inter-device communication is of course WiFi, more
+	specifically, a wireless LAN (local area network). WLANs have a high bandwidth and bit-rate
+	compared to other wireless standards, which is at the cost of greater power consumption. The range
+	for wifi typically ranges from 150ft inside to 300ft outside, though newer devices can 
+	achieve more \cite{WiFi}. A WLAN configuration would ensure that each device has the bandwidth needed 
+	to transmit all of the data that it gathers, however, it also means shorter battery life spans
+	for each of the devices. Furthermore, it means that each device will have to fall within 
+	300ft of whichever device is connected to a global network. 
+	\subsection{LoRa}
+	LoRa is an LPWAN (Low Power Wide Area Network), meaning that the range of the network is
+	significantly larger than a WLAN, in the range of 3km in urban areas up to 30km in rural
+	areas \cite{LoRa}. Furthermore, the power consumption is also significantly lower, which is at the cost 
+	of an equally significant loss in bit-rate. Chips with LoRa are similar enough in cost to 
+	WiFi enabled chips that it's not of significance. The choice between LoRa and WiFi revolves
+	entirely about how much data each device needs to send, because if it is only a small amount
+	then LoRa is the clear choice, due to the longer lifespan that it guarantees for the devices'
+	batteries. LoRa also allows for networks of a much greater geographical span that WiFi, 
+	which would make projects that require the measurement of attributes on a large scale
+	much easier. 
+	\subsection{Bluetooth}
+	The last consideration for Inter-Device Communication Platform is Bluetooth, a short-range 
+	communication method typically used between mobile devices. Bluetooth is shorter range than
+	WiFi and LoRa, offering less bitrate than WiFi, but more than LoRa. Bluetooth chips are only
+	slightly more expensive that WiFi and LoRa chips, so price will not be the deciding factor. 
+	Bluetooth's short range means that the network will only be able to contain devices in a
+	small range, up to 100ft \cite{Bluetooth}. Furthermore, Bluetooth is not designed like WiFi is to
+	have a central hub or gateway be used in communication, rather it is typically a connection
+	used between two specific devices. This means that architecturally, it is also less likely
+	to suit Project LOOM's needs. 
+	
+Both WiFi and LoRa are strong contenders for use in Project LOOM, however, given that most devices
+plan only to transmit raw data, it is unlikely that any device would ever take full advantage of the 
+higher data transmission rates that WiFi offers. Rather, the devices are much more likely to make use
+of the longer lifespan that's guaranteed by LoRa, making LoRa the most apt choice. 
+	
+\section{Node Control Structure}
+Each node in the network, with the exception of the gateway, will be capable of gathering data or
+using an actuator of some kind, and a crucial question that goes with this is, "How is it decided
+when to do this?". The answer being that the nodes can be controlled in a variety of ways, each
+with benefits and drawbacks.
+	\subsection{Node Oriented}
+	Each  node could potentially be quite autonomous, wherein all of the behaviour that it has is
+	is based on internal logic and timers, not requiring any kind of external input to determine its behaviour.
+	When the node is programmed it would simply loop indefinitely, using timers  to determine when to wake up
+	from its sleep and gather and transmit data, then going back to sleep. The benefit of this would be that 
+	the nodes would be using a minimal amount of power as they would be in sleep mode whenever they
+	were not transmitting or gathering data. The downside of this is of course that unless all nodes timings are
+	synchronized, then the gateway has to be constantly listening, which will mean the gateway's battery will 
+	deplete much faster. Furthermore, each node would continue to gather and transmit data even if the gateway
+	stopped working, resulting in more robust system. Finally, each of the nodes would only need to be capable
+	of gathering and transmitting data, rather than also needing to receive data (for commands from the gateway).
+	\subsection{Gateway Oriented}
+	It would also be possible to control each node solely through use of the gateway, wherein each node would
+	be programmed with all the routines needed to gather, transmit, and receive data. Then upon starting, each
+	node would simply wait for instructions whenever not actively following the instructions it had received. 
+	In this system, the nodes would be slightly less lean as they would need to be able to process the commands
+	from the gateway. However, the biggest difference is that the non-gateway nodes would run out of battery earlier, as 
+	they would need to spend more time fully functional in order to receive and process transmissions, 
+	resulting in systems that lasts less time. Beyond this, the gateways would also need more complicated code as 
+	they would need to keep track of the rules for each node that they are transmitting commands to and receiving
+	data from, unless each node is following the same gathering and actuating logic. This would result in an 
+	overall more bloated system, with an upside being that only the gateway would need to be reprogrammed 
+	whenever data gathering logic changed. 
+	\subsection{User Oriented}
+	A third option would be to have the user be in sole control of deciding when each node would need to 
+	do certain things. This would be almost identical to the gateway oriented system with the exception that
+	the gateway would not need to contain the rules for each node, it would simply need to process and relay
+	user commands. The benefit of this is that it gives users complete control of when data is gathered and 
+	actuators are actuated. The user would also be able to control how efficient the power usage of the 
+	system would be, given the option to send specific nodes to sleep for defined periods of time. However, in order
+	to give the user significant control over each of the devices would require lots of overhead in each
+	device's programming, making this method have the potential to be extrememly bloated. 
+	
+Of these methods, I think both the Node and Gateway oriented approaches have strong justification for their use
+in specific situations. However, for the current purposes of Project LOOM, using a gateway oriented approach makes
+the most sense as it creates a more centralized system, which will be easier to test and demonstrate than the 
+node oriented approach. 
+
+\bibliography{tech_review_bib}{}
+\bibliographystyle{plain}
+\end{document}

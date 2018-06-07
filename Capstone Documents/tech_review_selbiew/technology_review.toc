@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {subsection}{\numberline {1.1}Role}{2}
+\contentsline {subsection}{\numberline {1.2}Goal}{2}
+\contentsline {section}{\numberline {2}Network Architecture}{2}
+\contentsline {subsection}{\numberline {2.1}Distributed}{2}
+\contentsline {subsection}{\numberline {2.2}Gateway Centralized}{3}
+\contentsline {subsection}{\numberline {2.3}Gateway Centralized with Cloud Service}{3}
+\contentsline {section}{\numberline {3}Inter-Device Communication Platform}{3}
+\contentsline {subsection}{\numberline {3.1}WiFi}{3}
+\contentsline {subsection}{\numberline {3.2}LoRa}{4}
+\contentsline {subsection}{\numberline {3.3}Bluetooth}{4}
+\contentsline {section}{\numberline {4}Version Control}{4}
+\contentsline {subsection}{\numberline {4.1}Git}{4}
+\contentsline {subsection}{\numberline {4.2}Mercurial}{5}
+\contentsline {subsection}{\numberline {4.3}Subversion}{5}
+\contentsline {section}{References}{5}
